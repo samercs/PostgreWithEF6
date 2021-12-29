@@ -1,0 +1,52 @@
+﻿@model IReadOnlyCollection<Memo>
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+@section Styles
+{
+    <link rel="stylesheet" href="~/lib/datatables/css/jquery.dataTables.min.css" asp-append-version="true" />
+}
+
+@section Scripts
+{
+    <script src="~/lib/datatables/js/jquery.dataTables.min.js"></script>
+    <script>
+        $("#dataTable").DataTable({
+            "dom": "Bfrtip",
+            "processing": true,
+            "serverSide": true,
+            "ajax": "/home/json",
+            "columns": [
+                { "data": "id" },
+                { "data": "letterid" },
+                { "data": "destinationid" },
+                { "data": "subject" },
+                { "data": null }
+            ],
+            "columnDefs": [
+                {
+                    targets: -1,
+                    data: null,
+                    orderable: false,
+                    className: 'text-end',
+                    render: function(data, type, row) {
+                        return `<a href="/${row.id}/details">Details</a>`;
+                    }
+                }
+            ]
+        });
+    </script>
+}
+
+<table class="table table-dark table-bordered table-responsive" id="dataTable">
+    <thead>
+    <tr>
+        <td>ID</td>
+        <td>LetterId</td>
+        <td>Destantion ID</td>
+        <td>Subject</td>
+        <td>Details</td>
+    </tr>
+    </thead>
+</table>

@@ -1,0 +1,244 @@
+﻿@model Memo
+@{
+    ViewData["Title"] = "Details";
+}
+
+@section Styles
+{
+    
+}
+
+@section Scripts
+{
+    
+    <script>
+    </script>
+}
+
+<div class="card">
+    <div class="card-header">
+        <h3>
+            @Model.Subject
+        </h3>
+    </div>
+    <div class="card-body">
+        <table class="table">
+            <tr>
+                <td class="bg-black text-white">
+                    ID
+                </td>
+                <td>
+                    @Model.Id
+                </td>
+                <td class="bg-black text-white">
+                    Letter ID
+                </td>
+                <td>
+                    @Model.Letterid
+                </td>
+                <td class="bg-black text-white">
+                    Dest ID
+                </td>
+                <td>
+                    @Model.Destinationid
+                </td>
+            </tr>
+            <tr>
+                <td class="bg-black text-white">
+                    Source
+                </td>
+                <td>
+                    @Model.Sourceid
+                </td>
+                <td class="bg-black text-white">
+                    Dest Type
+                </td>
+                <td>
+                    @Model.Destinationtypeid
+                </td>
+                <td class="bg-black text-white">
+                    Created
+                </td>
+                <td>
+                    @Model.Createddate.ToString("dd MMM yyyy")
+                </td>
+            </tr>
+            <tr>
+                <td class="bg-black text-white">
+                    Message
+                </td>
+                <td>
+                    @Html.Raw(Model.Message?.Body ?? "")
+                </td>
+                <td class="bg-black text-white">
+                    Replay Date
+                </td>
+                <td>
+                    @Model.Replaydate?.ToString("dd MMM yyyy")
+                </td>
+                <td class="bg-black text-white">
+                    Created By
+                </td>
+                <td>
+                    @Model.Createdby
+                </td>
+            </tr>
+            <tr>
+                <td class="bg-black text-white">
+                    Actions
+                </td>
+                <td>
+                    @foreach (var action in Model.MemoActions)
+                    {
+                        <span class="badge bg-info">@action.Title</span>
+                    }
+                </td>
+                <td class="bg-black text-white">
+                    Urgent
+                </td>
+                <td>
+                    @if (Model.Isreply)
+                    {
+                        <span class="badge bg-danger">Yes</span>
+                    }
+                    else
+                    {
+                        <span class="badge bg-secondary">No</span>
+                    }
+                </td>
+                <td class="bg-black text-white">
+                    Top Secret
+                </td>
+                <td>
+                    @if (Model.Topsecret)
+                    {
+                        <span class="badge bg-danger">Yes</span>
+                    }
+                    else
+                    {
+                        <span class="badge bg-secondary">No</span>
+                    }
+                </td>
+            </tr>
+            <tr>
+                <td class="bg-black text-white">
+                    Confidential
+                </td>
+                <td>
+                    @if (Model.Confidential)
+                    {
+                        <span class="badge bg-danger">Yes</span>
+                    }
+                    else
+                    {
+                        <span class="badge bg-secondary">No</span>
+                    }
+                </td>
+                <td class="bg-black text-white">
+                    Replay Data
+                </td>
+                <td>
+                    @Html.Raw(Model.Replaydata?.Body ?? "")
+                </td>
+                <td class="bg-black text-white">
+                    Replay Data Attachments
+                </td>
+                <td>
+                    @if (Model.Replaydata != null && Model.Replaydata.Attachments != null)
+                    {
+                        foreach (var attach in Model.Replaydata.Attachments)
+                        {
+                            <span class="badge bg-info">@attach.Name</span>
+                        }
+                    }
+                </td>
+            </tr>
+            <tr>
+                <td class="bg-black text-white">
+                    Serial
+                </td>
+                <td>
+                    @Model.Serialno
+                </td>
+                <td class="bg-black text-white">
+                    Source Type
+                </td>
+                <td>
+                    @Model.Sourcetypeid
+                </td>
+                <td class="bg-black text-white">
+                    Paremt
+                </td>
+                <td>
+                    @Model.Parentid
+                </td>
+            </tr>
+            <tr>
+                <td class="bg-black text-white">
+                    Event
+                </td>
+                <td>
+                    @Model.Eventid
+                </td>
+                <td class="bg-black text-white">
+                    Is Reaplay
+                </td>
+                <td>
+                    @if (Model.Isreply)
+                    {
+                        <span class="badge bg-danger">Yes</span>
+                    }
+                    else
+                    {
+                        <span class="badge bg-secondary">No</span>
+                    }
+                </td>
+                <td class="bg-black text-white">
+                    Type
+                </td>
+                <td>
+                    @Model.Typeid
+                </td>
+            </tr>
+        <tr>
+            <td class="bg-black text-white">
+                Replay Id
+            </td>
+            <td>
+                @Model.Replayid
+            </td>
+            <td class="bg-black text-white">
+                Details
+            </td>
+            <td>
+                <span class="badge bg-info">
+                    From @Model.Details.sourcename
+                </span>
+                <span class="badge bg-info">
+                    To @Model.Details.destname
+                </span>
+                <span class="badge bg-info">
+                    Parnet From @Model.Details.parentfrom
+                </span>
+                <span class="badge bg-info">
+                    Full NAme @Model.Details.fullnamear
+                </span>
+            </td>
+            <td class="bg-black text-white">
+                Is Approve
+            </td>
+            <td>
+                @if (Model.Isapproved ?? false)
+                {
+                    <span class="badge bg-danger">Yes</span>
+                }
+                else
+                {
+                    <span class="badge bg-secondary">No</span>
+                }
+            </td>
+        </tr>
+        </table>
+    </div>
+</div>
+

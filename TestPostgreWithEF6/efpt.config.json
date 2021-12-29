@@ -1,0 +1,50 @@
+﻿{
+   "CodeGenerationMode": 2,
+   "ContextClassName": "CcsstageContext",
+   "ContextNamespace": null,
+   "DefaultDacpacSchema": null,
+   "FilterSchemas": false,
+   "IncludeConnectionString": true,
+   "ModelNamespace": null,
+   "OutputContextPath": "Data",
+   "OutputPath": "Models",
+   "ProjectRootNamespace": "TestPostgreWithEF6",
+   "Schemas": null,
+   "SelectedHandlebarsLanguage": 0,
+   "SelectedToBeGenerated": 0,
+   "Tables": [
+      {
+         "Name": "public.letters",
+         "ObjectType": 0
+      },
+      {
+         "Name": "public.memos",
+         "ObjectType": 0
+      },
+      {
+         "Name": "public.actions",
+         "ObjectType": 0
+      },
+      {
+         "Name": "public.memologs",
+         "ObjectType": 0
+      }
+   ],
+   "UiHint": "CCSDEVS2",
+   "UseBoolPropertiesWithoutDefaultSql": false,
+   "UseDatabaseNames": false,
+   "UseDbContextSplitting": true,
+   "UseFluentApiOnly": true,
+   "UseHandleBars": false,
+   "UseInflector": true,
+   "UseLegacyPluralizer": false,
+   "UseManyToManyEntity": true,
+   "UseNoConstructor": false,
+   "UseNoDefaultConstructor": true,
+   "UseNoNavigations": false,
+   "UseNoObjectFilter": false,
+   "UseNodaTime": false,
+   "UseNullableReferences": false,
+   "UseSchemaFolders": false,
+   "UseSpatial": false
+}
